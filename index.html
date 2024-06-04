@@ -1,11 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>dogBook</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./src/js/index.js" defer></script>
 </head>
+
 <body>
-    
+    <div class="antialiased bg-gray-50 dark:bg-gray-900">
+        <nav
+            class="bg-white border-b border-gray-200 px-4 py-2.5 dark:bg-gray-800 dark:border-gray-700 fixed left-0 right-0 top-0 z-50">
+            <div class="flex flex-wrap justify-between items-center">
+                <div class="flex justify-start items-center">
+                    <button data-drawer-target="drawer-navigation" data-drawer-toggle="drawer-navigation"
+                        aria-controls="drawer-navigation"
+                        class="p-2 mr-2 text-gray-600 rounded-lg cursor-pointer md:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                        <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <svg aria-hidden="true" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                        <span class="sr-only">Toggle sidebar</span>
+                    </button>
+                    <a href="https://flowbite.com" class="flex items-center justify-between mr-4">
+                        <img src="https://flowbite.s3.amazonaws.com/logo.svg" class="mr-3 h-8" alt="Flowbite Logo" />
+                        <span
+                            class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Sidebar -->
+
+        <aside
+            class="fixed top-0 left-0 z-40 w-64 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
+            aria-label="Sidenav" id="drawer-navigation">
+            <div class="overflow-y-auto py-5 px-3 h-full bg-white dark:bg-gray-800">
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#" onclick="navigateTo('pagina-api')"
+                            class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            <svg aria-hidden="true"
+                                class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"
+                                fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
+                                <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
+                            </svg>
+                            <span class="ml-3">Dati API</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="navigateTo('pagina-scroll')"
+                            class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor"
+                                class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z" />
+                            </svg>
+                            <span class="ml-3">Scroll</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="navigateTo('pagina-modulo')"
+                            class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor"
+                                class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25" />
+                            </svg>
+                            <span class="ml-3">Modulo</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="p-4 md:ml-64 h-auto pt-20" id="routing-uotlet">
+            <!-- pagina dati API -->
+            <section id="pagina-api" >
+
+
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div>
+                        <img class="h-auto max-w-full rounded-lg"
+                            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="h-auto max-w-full rounded-lg"
+                            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-1.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="h-auto max-w-full rounded-lg"
+                            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-2.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="h-auto max-w-full rounded-lg"
+                            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="h-auto max-w-full rounded-lg"
+                            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-4.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="h-auto max-w-full rounded-lg"
+                            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-5.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="h-auto max-w-full rounded-lg"
+                            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-6.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="h-auto max-w-full rounded-lg"
+                            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-7.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="h-auto max-w-full rounded-lg"
+                            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-8.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="h-auto max-w-full rounded-lg"
+                            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-9.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="h-auto max-w-full rounded-lg"
+                            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-10.jpg" alt="">
+                    </div>
+                    <div>
+                        <img class="h-auto max-w-full rounded-lg"
+                            src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-11.jpg" alt="">
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- pagina Scroll -->
+            <section id="pagina-scroll" class="hidden text-gray-300 pt-5">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, quas alias? Dicta perspiciatis
+                    facere sed architecto? Provident tempora, illo consequatur reprehenderit sequi magnam qui ad enim
+                    cum animi perspiciatis nobis voluptas dolorum quia corrupti, commodi eum impedit explicabo
+                    voluptatibus possimus. Unde porro earum nostrum consequuntur vero ullam nemo mollitia? Accusantium
+                    dolore voluptate in repellat at odit recusandae corrupti saepe temporibus culpa delectus soluta
+                    dolorum, architecto itaque nobis beatae labore, dolor facere quibusdam. Dolorem, necessitatibus
+                    exercitationem blanditiis mollitia officia sint eum repellendus asperiores alias adipisci
+                    praesentium, reiciendis impedit rerum aut non qui tempora libero est dicta delectus unde cumque
+                    facere. Non, cupiditate. Vero adipisci, tempora nobis delectus explicabo perspiciatis consectetur.
+                    Ut cum inventore illo necessitatibus dolore dolorum tempore itaque ducimus quis ipsa quae,
+                    temporibus nulla deleniti rerum. Delectus perferendis, modi quos suscipit molestiae eum quae maxime,
+                    debitis necessitatibus distinctio accusantium neque nesciunt placeat alias cupiditate libero iure
+                    aut ea nostrum cumque harum dolorem quisquam sapiente? Odit repellat, nesciunt facere corrupti
+                    recusandae quis voluptatum labore blanditiis. Deserunt in quis dolorum a repellendus eligendi
+                    reiciendis distinctio modi, magnam reprehenderit dicta impedit deleniti quo rem quisquam, aspernatur
+                    nostrum illum dignissimos recusandae necessitatibus, nesciunt quasi. Excepturi, esse est porro
+                    repellat at libero. Similique dolore sed debitis dolorem ipsa omnis officia! Aperiam illo id, veniam
+                    atque exercitationem ex sint debitis eaque temporibus consequatur consectetur, sed reprehenderit
+                    iusto obcaecati vel ipsam hic aliquam repellat adipisci enim? Cupiditate, veritatis. Magnam maiores
+                    saepe rem itaque, et debitis soluta corrupti iure alias, exercitationem incidunt dicta facilis
+                    tenetur ut assumenda. Eaque necessitatibus sit nulla. Beatae culpa blanditiis autem odio eveniet
+                    doloremque id. Autem eos provident recusandae labore aliquam repellat ipsum. Ex quidem ipsa amet.
+                    Quibusdam nihil quo error asperiores corrupti labore neque! Labore animi, nihil aspernatur sunt odio
+                    tenetur consequatur at iste quam expedita quisquam autem id vero. Enim, commodi. Voluptate totam
+                    cumque officiis delectus distinctio vel ipsa ex inventore officia praesentium, deserunt sit possimus
+                    pariatur soluta itaque ratione dicta placeat voluptates temporibus similique necessitatibus eaque.
+                    Repudiandae nesciunt maxime minus beatae veniam voluptatum delectus neque voluptates, ut, ipsam
+                    autem odio illo, necessitatibus explicabo soluta. Eaque saepe culpa, id enim laudantium aspernatur
+                    nam iure deleniti iste! Voluptate qui suscipit beatae! Aperiam voluptas deserunt voluptatum mollitia
+                    ullam harum molestias, id ex sed exercitationem, hic odit facilis! Hic quia, quisquam nostrum maxime
+                    tempore ullam. Dolorum aliquid commodi voluptatem blanditiis excepturi necessitatibus numquam amet
+                    odio aspernatur quidem magnam, molestias dignissimos nostrum minima suscipit consequuntur nesciunt
+                    assumenda nulla harum quo? Saepe eaque voluptas voluptatem cumque magnam similique recusandae
+                    laborum ut quo beatae illum atque quae nulla enim laboriosam nemo iste molestiae, consectetur eos,
+                    repudiandae dolore. Architecto, vero mollitia impedit laboriosam, quaerat nulla eius at aliquam eum,
+                    fugit assumenda incidunt expedita minus. Quam sunt dolores repellendus veritatis quis. Eveniet
+                    nostrum reiciendis, veritatis placeat eos cumque cum. Numquam voluptate veniam praesentium quos ipsa
+                    commodi ducimus est consectetur cum mollitia rerum adipisci, tempora, omnis qui ipsam hic nostrum
+                    aperiam molestias. Esse aspernatur cupiditate ducimus optio pariatur soluta suscipit, deserunt at
+                    delectus dignissimos hic perspiciatis exercitationem eos maxime quae a vero, architecto qui
+                    necessitatibus et laboriosam eum veritatis. Minus, iusto! Praesentium delectus veniam aliquam
+                    incidunt quasi dolorum doloremque, ullam at eaque quae. Corporis dicta magni saepe, voluptas
+                    incidunt fuga autem asperiores iste laboriosam deserunt, id minima, sint nisi beatae quisquam
+                    eligendi explicabo soluta! Corporis, facere eum ut explicabo facilis ratione expedita ipsa
+                    voluptatem vitae libero cumque vero alias unde quidem mollitia eos! Iure in maiores voluptatibus
+                    veritatis voluptatem similique cum consequatur corrupti, alias autem perspiciatis beatae repellat
+                    ratione facilis pariatur quis rem molestiae. Amet quod odit dolorum inventore modi, alias magnam
+                    voluptatibus vel aspernatur nam adipisci molestias maxime porro hic doloremque ab, natus, excepturi
+                    sequi quas maiores neque. Voluptatem veniam, aperiam ducimus neque adipisci vero asperiores fuga
+                    unde. Maiores officia voluptatum voluptatibus dicta, fugiat voluptatem omnis. Quisquam
+                    necessitatibus laborum odio quis alias quasi nesciunt natus dolorum, temporibus veritatis dolor,
+                    magnam ea voluptates quae autem impedit enim cupiditate repellat nemo! Corrupti iste pariatur
+                    suscipit, unde illo doloremque? Officiis rem repudiandae quidem quia vitae quis perferendis odit
+                    dignissimos error optio natus debitis sed laboriosam numquam inventore omnis, asperiores harum dicta
+                    quibusdam nesciunt eligendi fuga cupiditate. Iusto facilis sapiente veritatis possimus vitae culpa
+                    voluptates consectetur optio, libero expedita hic suscipit repudiandae ex fugit.</p>
+            </section>
+
+            <!-- pagina modulo -->
+            <section id="pagina-modulo" class="hidden dark:bg-gray-900">
+                <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+                    <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+                        <img class="w-8 h-8 mr-2" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/logo.svg"
+                            alt="logo">
+                        Flowbite
+                    </a>
+                    <div
+                        class="w-full p-6 bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md dark:bg-gray-800 dark:border-gray-700 sm:p-8">
+                        <h2
+                            class="mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                            Change Password
+                        </h2>
+                        <form class="mt-4 space-y-4 lg:mt-5 md:space-y-5" action="#">
+                            <div>
+                                <label for="email"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your
+                                    email</label>
+                                <input type="email" name="email" id="email"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    placeholder="name@company.com" required="">
+                            </div>
+                            <div>
+                                <label for="password"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">New
+                                    Password</label>
+                                <input type="password" name="password" id="password" placeholder="••••••••"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    required="">
+                            </div>
+                            <div>
+                                <label for="confirm-password"
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirm
+                                    password</label>
+                                <input type="confirm-password" name="confirm-password" id="confirm-password"
+                                    placeholder="••••••••"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                    required="">
+                            </div>
+                            <div class="flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input id="newsletter" aria-describedby="newsletter" type="checkbox"
+                                        class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
+                                        required="">
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="newsletter" class="font-light text-gray-500 dark:text-gray-300">I accept
+                                        the <a
+                                            class="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                                            href="#">Terms and Conditions</a></label>
+                                </div>
+                            </div>
+                            <button type="submit"
+                                class="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Reset
+                                passwod</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 </body>
+
 </html>
